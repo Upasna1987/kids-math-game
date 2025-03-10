@@ -1,6 +1,38 @@
 let currentProblem = null;
 let playerName = '';
 
+// Initialize speech synthesis
+const speechSynthesis = window.speechSynthesis;
+let speaking = false;
+
+function speak(text) {
+    // Cancel any ongoing speech
+    speechSynthesis.cancel();
+
+    // Create a new speech utterance
+    const utterance = new SpeechSynthesisUtterance(text);
+    
+    // Set properties for a child-friendly voice
+    utterance.pitch = 1.2; // Slightly higher pitch
+    utterance.rate = 0.9;  // Slightly slower rate
+    utterance.volume = 1;  // Full volume
+    
+    // Try to find a friendly voice
+    const voices = speechSynthesis.getVoices();
+    const preferredVoice = voices.find(voice => 
+        voice.name.includes('Samantha') || // macOS
+        voice.name.includes('Female') ||   // Generic female voice
+        voice.name.includes('Google UK Female') // Chrome
+    );
+    
+    if (preferredVoice) {
+        utterance.voice = preferredVoice;
+    }
+
+    // Speak the message
+    speechSynthesis.speak(utterance);
+}
+
 function startGame() {
     const nameInput = document.getElementById('childName');
     playerName = nameInput.value.trim();
@@ -16,6 +48,9 @@ function startGame() {
     
     // Set player name in the game screen
     document.getElementById('playerName').textContent = playerName;
+    
+    // Welcome message
+    speak(`Welcome ${playerName}! Let's count together!`);
     
     // Start fetching problems
     fetchProblem();
@@ -51,12 +86,16 @@ function triggerConfetti() {
 
 // Array of encouraging messages
 const encouragingMessages = [
-    "🌟 Amazing job, {name}! 🌟",
-    "🎉 You're a math star, {name}! 🎉",
-    "🌈 Wonderful counting, {name}! 🌈",
-    "🏆 Super smart, {name}! 🏆",
-    "🎯 Perfect answer, {name}! 🎯",
-    "🚀 Math genius, {name}! 🚀"
+    `Amazing job, {name}! You're doing great!`,
+    `Fantastic counting, {name}! Keep shining!`,
+    `Wonderful work, {name}! You're getting better every day!`,
+    `Brilliant counting, {name}! You're becoming a math star!`,
+    `Super smart, {name}! You make counting fun!`,
+    `Beautiful work, {name}! You're learning so fast!`,
+    `Out of this world, {name}! You're unstoppable!`,
+    `You're shining bright, {name}! Keep going!`,
+    `Perfect counting, {name}! You're getting so good at this!`,
+    `Spectacular job, {name}! You're becoming a counting champion!`
 ];
 
 // Function to get a random encouraging message
@@ -78,23 +117,36 @@ function checkAnswer(selectedNumber) {
 }
 
 function handleSuccess() {
-    // Show success message
+    // Get and display the message
+    const message = getRandomMessage();
     const resultElement = document.getElementById('result');
-    resultElement.textContent = getRandomMessage();
+    resultElement.textContent = message;
     resultElement.className = 'mt-6 text-2xl font-bold text-green-500';
+    
+    // Speak the congratulatory message
+    speak(message);
     
     // Trigger confetti
     triggerConfetti();
     
     // Fetch new problem after a delay
-    setTimeout(fetchProblem, 2000);
+    setTimeout(fetchProblem, 3000);
 }
 
 function handleWrongAnswer() {
+    const message = `Let's try again, ${playerName}! Count one more time!`;
     const resultElement = document.getElementById('result');
-    resultElement.textContent = `Try again, ${playerName}! Let's count together! 💪`;
+    resultElement.textContent = message;
     resultElement.className = 'mt-6 text-2xl font-bold text-orange-500';
+    
+    // Speak the encouragement
+    speak(message);
 }
+
+// Initialize voices when they are loaded
+speechSynthesis.onvoiceschanged = () => {
+    console.log('Voices loaded:', speechSynthesis.getVoices().length);
+};
 
 // Initialize the game when the page loads
 document.addEventListener('DOMContentLoaded', () => {

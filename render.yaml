@@ -2,6 +2,7 @@ services:
   - type: web
     name: kids-math-game
     env: node
+    repo: https://github.com/Upasna1987/kids-math-game.git
     buildCommand: npm install
     startCommand: node src/server.js
     envVars:

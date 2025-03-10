@@ -8,7 +8,7 @@ async function fetchProblem() {
         currentProblem = data;
         
         // Display the problem (emoji representation)
-        document.getElementById('problemDisplay').textContent = currentProblem.question;
+        document.getElementById('problemDisplay').textContent = currentProblem.problem;
         
         // Clear previous result
         document.getElementById('result').textContent = '';
@@ -31,8 +31,8 @@ function triggerConfetti() {
 // Array of encouraging messages
 const encouragingMessages = [
     "🌟 Amazing job! 🌟",
-    "�� You're a math star! 🎉",
-    "�� Wonderful counting! 🌈",
+    "🎉 You're a math star! 🎉",
+    "🌈 Wonderful counting! 🌈",
     "🏆 Super smart! 🏆",
     "🎯 Perfect answer! 🎯",
     "🚀 Math genius! 🚀"

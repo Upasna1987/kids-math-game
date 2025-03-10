@@ -1,9 +1,11 @@
 services:
   - type: web
-    name: kids-reading-game
+    name: kids-math-game
     env: node
     buildCommand: npm install
-    startCommand: npm start
+    startCommand: node src/server.js
     envVars:
       - key: NODE_ENV
-        value: production 
+        value: production
+    healthCheckPath: /test
+    autoDeploy: true 

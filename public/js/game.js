@@ -1,44 +1,41 @@
-let currentWord = '';
+let currentProblem = null;
 
 // Function to fetch a random word from the server
-async function fetchWord() {
+async function fetchProblem() {
     try {
-        // Use relative URL which will work both locally and in production
-        const response = await fetch('/api/word');
+        const response = await fetch('/api/problem');
         const data = await response.json();
-        currentWord = data.word;
-        document.getElementById('wordDisplay').textContent = currentWord;
+        currentProblem = data;
+        
+        // Display the problem (emoji representation)
+        document.getElementById('problemDisplay').textContent = currentProblem.question;
+        
+        // Clear previous result
         document.getElementById('result').textContent = '';
+        
     } catch (error) {
-        console.error('Error fetching word:', error);
-        // Show error message to user
-        document.getElementById('wordDisplay').textContent = 'Loading...';
+        console.error('Error fetching problem:', error);
+        document.getElementById('problemDisplay').textContent = 'Loading...';
     }
 }
 
 // Function to trigger confetti animation
 function triggerConfetti() {
     confetti({
-        particleCount: 150,
-        spread: 80,
-        origin: { y: 0.6 },
-        colors: ['#4AA5FF', '#4ADE80', '#FBBF24', '#F472B6', '#A78BFA'],
-        ticks: 300  // Increased duration for confetti
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
     });
 }
 
 // Array of encouraging messages
 const encouragingMessages = [
-    "🌟 Amazing reading! 🌟",
-    "⭐ Great job! ⭐",
-    "🎉 Wonderful! 🎉",
-    "🌈 Fantastic reading! 🌈",
-    "🏆 Super star reader! 🏆",
-    "🎨 Brilliant! 🎨",
-    "🚀 Out of this world! 🚀",
-    "🌞 You're shining bright! 🌞",
-    "🎯 Perfect reading! 🎯",
-    "🎪 Spectacular! 🎪"
+    "🌟 Amazing job! 🌟",
+    "�� You're a math star! 🎉",
+    "�� Wonderful counting! 🌈",
+    "🏆 Super smart! 🏆",
+    "🎯 Perfect answer! 🎯",
+    "🚀 Math genius! 🚀"
 ];
 
 // Function to get a random encouraging message
@@ -46,28 +43,36 @@ function getRandomMessage() {
     return encouragingMessages[Math.floor(Math.random() * encouragingMessages.length)];
 }
 
-// Function to handle parent confirmation
-function handleSuccess() {
-    const resultDiv = document.getElementById('result');
-    resultDiv.textContent = getRandomMessage();
-    resultDiv.className = 'mt-6 text-2xl font-bold text-kid-green animate-bounce';
-    triggerConfetti();
+function checkAnswer(selectedNumber) {
+    if (!currentProblem) return;
     
-    // Disable the button temporarily
-    const goButton = document.getElementById('goButton');
-    goButton.disabled = true;
-    goButton.classList.add('opacity-50');
+    const correctAnswer = currentProblem.answer.toString();
     
-    // Get a new word after 5 seconds
-    setTimeout(() => {
-        fetchWord();
-        goButton.disabled = false;
-        goButton.classList.remove('opacity-50');
-    }, 5000);  // Changed from 2000 to 5000 milliseconds
+    if (selectedNumber === correctAnswer) {
+        handleSuccess();
+    } else {
+        handleWrongAnswer();
+    }
 }
 
-// Event listeners
-document.getElementById('goButton').addEventListener('click', handleSuccess);
+function handleSuccess() {
+    // Show success message
+    const resultElement = document.getElementById('result');
+    resultElement.textContent = getRandomMessage();
+    resultElement.className = 'mt-6 text-2xl font-bold text-green-500';
+    
+    // Trigger confetti
+    triggerConfetti();
+    
+    // Fetch new problem after a delay
+    setTimeout(fetchProblem, 2000);
+}
 
-// Initialize the game
-fetchWord(); 
+function handleWrongAnswer() {
+    const resultElement = document.getElementById('result');
+    resultElement.textContent = "Try again! Let's count together! 💪";
+    resultElement.className = 'mt-6 text-2xl font-bold text-orange-500';
+}
+
+// Start the game when the page loads
+document.addEventListener('DOMContentLoaded', fetchProblem); 

@@ -44,6 +44,50 @@ function getRandomWord() {
     return wordsList[Math.floor(Math.random() * wordsList.length)];
 }
 
+// Store math problems in memory - Curated for 3-4 year olds
+const mathProblems = [
+    // Counting Objects (1-5)
+    { problem: '🍎', answer: '1', type: 'count' },
+    { problem: '🍎 🍎', answer: '2', type: 'count' },
+    { problem: '🍎 🍎 🍎', answer: '3', type: 'count' },
+    { problem: '🍎 🍎 🍎 🍎', answer: '4', type: 'count' },
+    { problem: '🍎 🍎 🍎 🍎 🍎', answer: '5', type: 'count' },
+
+    // Counting Stars
+    { problem: '⭐', answer: '1', type: 'count' },
+    { problem: '⭐ ⭐', answer: '2', type: 'count' },
+    { problem: '⭐ ⭐ ⭐', answer: '3', type: 'count' },
+    { problem: '⭐ ⭐ ⭐ ⭐', answer: '4', type: 'count' },
+    { problem: '⭐ ⭐ ⭐ ⭐ ⭐', answer: '5', type: 'count' },
+
+    // Counting Hearts
+    { problem: '❤️', answer: '1', type: 'count' },
+    { problem: '❤️ ❤️', answer: '2', type: 'count' },
+    { problem: '❤️ ❤️ ❤️', answer: '3', type: 'count' },
+    { problem: '❤️ ❤️ ❤️ ❤️', answer: '4', type: 'count' },
+    { problem: '❤️ ❤️ ❤️ ❤️ ❤️', answer: '5', type: 'count' },
+
+    // Counting Balloons
+    { problem: '🎈', answer: '1', type: 'count' },
+    { problem: '🎈 🎈', answer: '2', type: 'count' },
+    { problem: '🎈 🎈 🎈', answer: '3', type: 'count' },
+    { problem: '🎈 🎈 🎈 🎈', answer: '4', type: 'count' },
+    { problem: '🎈 🎈 🎈 🎈 🎈', answer: '5', type: 'count' },
+
+    // Simple Addition with Objects (sums up to 5)
+    { problem: '🍎 + 🍎', answer: '2', type: 'add' },
+    { problem: '⭐ + ⭐', answer: '2', type: 'add' },
+    { problem: '🍎 + 🍎 + 🍎', answer: '3', type: 'add' },
+    { problem: '⭐ + ⭐ + ⭐', answer: '3', type: 'add' },
+    { problem: '🎈 + 🎈', answer: '2', type: 'add' },
+    { problem: '❤️ + ❤️', answer: '2', type: 'add' }
+];
+
+function getRandomProblem() {
+    return mathProblems[Math.floor(Math.random() * mathProblems.length)];
+}
+
 module.exports = {
-    getRandomWord
+    getRandomWord,
+    getRandomProblem
 }; 

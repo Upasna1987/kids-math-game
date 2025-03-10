@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const { getRandomWord } = require('./db/database');
+const { getRandomProblem } = require('./db/database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,11 +22,11 @@ app.use((req, res, next) => {
     next();
 });
 
-// Route to get a random word
-app.get('/api/word', (req, res) => {
-    const word = getRandomWord();
-    console.log('Sending word:', word);
-    res.json({ word });
+// Route to get a random math problem
+app.get('/api/problem', (req, res) => {
+    const problem = getRandomProblem();
+    console.log('Sending problem:', problem);
+    res.json(problem);
 });
 
 // Test route

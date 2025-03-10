@@ -1,4 +1,25 @@
 let currentProblem = null;
+let playerName = '';
+
+function startGame() {
+    const nameInput = document.getElementById('childName');
+    playerName = nameInput.value.trim();
+    
+    if (!playerName) {
+        alert('Please enter your child\'s name to start the game!');
+        return;
+    }
+    
+    // Show game screen and hide welcome screen
+    document.getElementById('welcomeScreen').style.display = 'none';
+    document.getElementById('gameScreen').style.display = 'block';
+    
+    // Set player name in the game screen
+    document.getElementById('playerName').textContent = playerName;
+    
+    // Start fetching problems
+    fetchProblem();
+}
 
 // Function to fetch a random word from the server
 async function fetchProblem() {
@@ -30,17 +51,18 @@ function triggerConfetti() {
 
 // Array of encouraging messages
 const encouragingMessages = [
-    "🌟 Amazing job! 🌟",
-    "🎉 You're a math star! 🎉",
-    "🌈 Wonderful counting! 🌈",
-    "🏆 Super smart! 🏆",
-    "🎯 Perfect answer! 🎯",
-    "🚀 Math genius! 🚀"
+    "🌟 Amazing job, {name}! 🌟",
+    "🎉 You're a math star, {name}! 🎉",
+    "🌈 Wonderful counting, {name}! 🌈",
+    "🏆 Super smart, {name}! 🏆",
+    "🎯 Perfect answer, {name}! 🎯",
+    "🚀 Math genius, {name}! 🚀"
 ];
 
 // Function to get a random encouraging message
 function getRandomMessage() {
-    return encouragingMessages[Math.floor(Math.random() * encouragingMessages.length)];
+    const message = encouragingMessages[Math.floor(Math.random() * encouragingMessages.length)];
+    return message.replace('{name}', playerName);
 }
 
 function checkAnswer(selectedNumber) {
@@ -70,9 +92,12 @@ function handleSuccess() {
 
 function handleWrongAnswer() {
     const resultElement = document.getElementById('result');
-    resultElement.textContent = "Try again! Let's count together! 💪";
+    resultElement.textContent = `Try again, ${playerName}! Let's count together! 💪`;
     resultElement.className = 'mt-6 text-2xl font-bold text-orange-500';
 }
 
-// Start the game when the page loads
-document.addEventListener('DOMContentLoaded', fetchProblem); 
+// Initialize the game when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // The welcome screen is shown by default
+    // Game will start when the start button is clicked
+}); 

@@ -26,16 +26,47 @@
         .number-button:active {
             transform: scale(0.95);
         }
+        .welcome-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        .game-screen {
+            display: none;
+        }
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center bg-gradient-to-r from-pink-100 to-blue-100">
-    <div class="text-center p-8 bg-white rounded-3xl shadow-xl max-w-md w-full mx-4">
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="welcome-screen text-center p-8 bg-white rounded-3xl shadow-xl max-w-md w-full mx-4">
+        <h1 class="text-4xl font-bold text-blue-500">Welcome to Math Game! 🎈</h1>
+        
+        <div class="space-y-4 w-full">
+            <p class="text-xl text-gray-600">Parents, please enter your child's name:</p>
+            <input type="text" 
+                   id="childName" 
+                   class="w-full px-4 py-2 text-xl border-2 border-blue-300 rounded-lg focus:border-blue-500 focus:outline-none"
+                   placeholder="Child's name">
+            <button onclick="startGame()" 
+                    class="w-full bg-green-500 text-white text-xl py-3 rounded-lg hover:bg-green-600 transition-colors">
+                Let's Play! 🎮
+            </button>
+        </div>
+        
+        <p class="text-sm text-gray-500 mt-4">
+            Get ready for a fun counting adventure! 🌟
+        </p>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="game-screen text-center p-8 bg-white rounded-3xl shadow-xl max-w-md w-full mx-4">
         <div class="flex justify-center items-center mb-4">
             <h1 class="text-4xl font-bold text-blue-500">Math Game! 🎈</h1>
         </div>
         
         <div class="mb-4 text-gray-600 text-lg">
-            Parents: Help your child count and click the correct number!
+            <span id="playerName"></span>, let's count and pick the right number!
         </div>
         
         <div class="mb-8 p-6 bg-blue-50 rounded-2xl shadow-inner">

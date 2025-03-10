@@ -46,41 +46,109 @@ function getRandomWord() {
 
 // Store math problems in memory - Curated for 3-4 year olds
 const mathProblems = [
-    // Counting Objects (1-5)
-    { problem: '🍎', answer: '1', type: 'count' },
-    { problem: '🍎 🍎', answer: '2', type: 'count' },
-    { problem: '🍎 🍎 🍎', answer: '3', type: 'count' },
-    { problem: '🍎 🍎 🍎 🍎', answer: '4', type: 'count' },
-    { problem: '🍎 🍎 🍎 🍎 🍎', answer: '5', type: 'count' },
+    // Cupcakes (1-10)
+    { problem: '🧁', answer: '1', type: 'count' },
+    { problem: '🧁 🧁', answer: '2', type: 'count' },
+    { problem: '🧁 🧁 🧁', answer: '3', type: 'count' },
+    { problem: '🧁 🧁 🧁 🧁', answer: '4', type: 'count' },
+    { problem: '🧁 🧁 🧁 🧁 🧁', answer: '5', type: 'count' },
+    { problem: '🧁 🧁 🧁 🧁 🧁 🧁', answer: '6', type: 'count' },
+    { problem: '🧁 🧁 🧁 🧁 🧁 🧁 🧁', answer: '7', type: 'count' },
+    { problem: '🧁 🧁 🧁 🧁 🧁 🧁 🧁 🧁', answer: '8', type: 'count' },
+    { problem: '🧁 🧁 🧁 🧁 🧁 🧁 🧁 🧁 🧁', answer: '9', type: 'count' },
+    { problem: '🧁 🧁 🧁 🧁 🧁 🧁 🧁 🧁 🧁 🧁', answer: '10', type: 'count' },
 
-    // Counting Stars
-    { problem: '⭐', answer: '1', type: 'count' },
-    { problem: '⭐ ⭐', answer: '2', type: 'count' },
-    { problem: '⭐ ⭐ ⭐', answer: '3', type: 'count' },
-    { problem: '⭐ ⭐ ⭐ ⭐', answer: '4', type: 'count' },
-    { problem: '⭐ ⭐ ⭐ ⭐ ⭐', answer: '5', type: 'count' },
+    // Butterflies (1-10)
+    { problem: '🦋', answer: '1', type: 'count' },
+    { problem: '🦋 🦋', answer: '2', type: 'count' },
+    { problem: '🦋 🦋 🦋', answer: '3', type: 'count' },
+    { problem: '🦋 🦋 🦋 🦋', answer: '4', type: 'count' },
+    { problem: '🦋 🦋 🦋 🦋 🦋', answer: '5', type: 'count' },
+    { problem: '🦋 🦋 🦋 🦋 🦋 🦋', answer: '6', type: 'count' },
+    { problem: '🦋 🦋 🦋 🦋 🦋 🦋 🦋', answer: '7', type: 'count' },
+    { problem: '🦋 🦋 🦋 🦋 🦋 🦋 🦋 🦋', answer: '8', type: 'count' },
+    { problem: '🦋 🦋 🦋 🦋 🦋 🦋 🦋 🦋 🦋', answer: '9', type: 'count' },
+    { problem: '🦋 🦋 🦋 🦋 🦋 🦋 🦋 🦋 🦋 🦋', answer: '10', type: 'count' },
 
-    // Counting Hearts
-    { problem: '❤️', answer: '1', type: 'count' },
-    { problem: '❤️ ❤️', answer: '2', type: 'count' },
-    { problem: '❤️ ❤️ ❤️', answer: '3', type: 'count' },
-    { problem: '❤️ ❤️ ❤️ ❤️', answer: '4', type: 'count' },
-    { problem: '❤️ ❤️ ❤️ ❤️ ❤️', answer: '5', type: 'count' },
+    // Cars (1-10)
+    { problem: '🚗', answer: '1', type: 'count' },
+    { problem: '🚗 🚗', answer: '2', type: 'count' },
+    { problem: '🚗 🚗 🚗', answer: '3', type: 'count' },
+    { problem: '🚗 🚗 🚗 🚗', answer: '4', type: 'count' },
+    { problem: '🚗 🚗 🚗 🚗 🚗', answer: '5', type: 'count' },
+    { problem: '🚗 🚗 🚗 🚗 🚗 🚗', answer: '6', type: 'count' },
+    { problem: '🚗 🚗 🚗 🚗 🚗 🚗 🚗', answer: '7', type: 'count' },
+    { problem: '🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗', answer: '8', type: 'count' },
+    { problem: '🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗', answer: '9', type: 'count' },
+    { problem: '🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗', answer: '10', type: 'count' },
 
-    // Counting Balloons
-    { problem: '🎈', answer: '1', type: 'count' },
-    { problem: '🎈 🎈', answer: '2', type: 'count' },
-    { problem: '🎈 🎈 🎈', answer: '3', type: 'count' },
-    { problem: '🎈 🎈 🎈 🎈', answer: '4', type: 'count' },
-    { problem: '🎈 🎈 🎈 🎈 🎈', answer: '5', type: 'count' },
+    // Trains (1-10)
+    { problem: '🚂', answer: '1', type: 'count' },
+    { problem: '🚂 🚂', answer: '2', type: 'count' },
+    { problem: '🚂 🚂 🚂', answer: '3', type: 'count' },
+    { problem: '🚂 🚂 🚂 🚂', answer: '4', type: 'count' },
+    { problem: '🚂 🚂 🚂 🚂 🚂', answer: '5', type: 'count' },
+    { problem: '🚂 🚂 🚂 🚂 🚂 🚂', answer: '6', type: 'count' },
+    { problem: '🚂 🚂 🚂 🚂 🚂 🚂 🚂', answer: '7', type: 'count' },
+    { problem: '🚂 🚂 🚂 🚂 🚂 🚂 🚂 🚂', answer: '8', type: 'count' },
+    { problem: '🚂 🚂 🚂 🚂 🚂 🚂 🚂 🚂 🚂', answer: '9', type: 'count' },
+    { problem: '🚂 🚂 🚂 🚂 🚂 🚂 🚂 🚂 🚂 🚂', answer: '10', type: 'count' },
 
-    // Simple Addition with Objects (sums up to 5)
-    { problem: '🍎 + 🍎', answer: '2', type: 'add' },
-    { problem: '⭐ + ⭐', answer: '2', type: 'add' },
-    { problem: '🍎 + 🍎 + 🍎', answer: '3', type: 'add' },
-    { problem: '⭐ + ⭐ + ⭐', answer: '3', type: 'add' },
-    { problem: '🎈 + 🎈', answer: '2', type: 'add' },
-    { problem: '❤️ + ❤️', answer: '2', type: 'add' }
+    // Unicorns (1-10)
+    { problem: '🦄', answer: '1', type: 'count' },
+    { problem: '🦄 🦄', answer: '2', type: 'count' },
+    { problem: '🦄 🦄 🦄', answer: '3', type: 'count' },
+    { problem: '🦄 🦄 🦄 🦄', answer: '4', type: 'count' },
+    { problem: '🦄 🦄 🦄 🦄 🦄', answer: '5', type: 'count' },
+    { problem: '🦄 🦄 🦄 🦄 🦄 🦄', answer: '6', type: 'count' },
+    { problem: '🦄 🦄 🦄 🦄 🦄 🦄 🦄', answer: '7', type: 'count' },
+    { problem: '🦄 🦄 🦄 🦄 🦄 🦄 🦄 🦄', answer: '8', type: 'count' },
+    { problem: '🦄 🦄 🦄 🦄 🦄 🦄 🦄 🦄 🦄', answer: '9', type: 'count' },
+    { problem: '🦄 🦄 🦄 🦄 🦄 🦄 🦄 🦄 🦄 🦄', answer: '10', type: 'count' },
+
+    // Cakes (1-10)
+    { problem: '🎂', answer: '1', type: 'count' },
+    { problem: '🎂 🎂', answer: '2', type: 'count' },
+    { problem: '🎂 🎂 🎂', answer: '3', type: 'count' },
+    { problem: '🎂 🎂 🎂 🎂', answer: '4', type: 'count' },
+    { problem: '🎂 🎂 🎂 🎂 🎂', answer: '5', type: 'count' },
+    { problem: '🎂 🎂 🎂 🎂 🎂 🎂', answer: '6', type: 'count' },
+    { problem: '🎂 🎂 🎂 🎂 🎂 🎂 🎂', answer: '7', type: 'count' },
+    { problem: '🎂 🎂 🎂 🎂 🎂 🎂 🎂 🎂', answer: '8', type: 'count' },
+    { problem: '🎂 🎂 🎂 🎂 🎂 🎂 🎂 🎂 🎂', answer: '9', type: 'count' },
+    { problem: '🎂 🎂 🎂 🎂 🎂 🎂 🎂 🎂 🎂 🎂', answer: '10', type: 'count' },
+
+    // Candles (1-10)
+    { problem: '🕯️', answer: '1', type: 'count' },
+    { problem: '🕯️ 🕯️', answer: '2', type: 'count' },
+    { problem: '🕯️ 🕯️ 🕯️', answer: '3', type: 'count' },
+    { problem: '🕯️ 🕯️ 🕯️ 🕯️', answer: '4', type: 'count' },
+    { problem: '🕯️ 🕯️ 🕯️ 🕯️ 🕯️', answer: '5', type: 'count' },
+    { problem: '🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️', answer: '6', type: 'count' },
+    { problem: '🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️', answer: '7', type: 'count' },
+    { problem: '🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️', answer: '8', type: 'count' },
+    { problem: '🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️', answer: '9', type: 'count' },
+    { problem: '🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️ 🕯️', answer: '10', type: 'count' },
+
+    // Sparkles (1-10)
+    { problem: '✨', answer: '1', type: 'count' },
+    { problem: '✨ ✨', answer: '2', type: 'count' },
+    { problem: '✨ ✨ ✨', answer: '3', type: 'count' },
+    { problem: '✨ ✨ ✨ ✨', answer: '4', type: 'count' },
+    { problem: '✨ ✨ ✨ ✨ ✨', answer: '5', type: 'count' },
+    { problem: '✨ ✨ ✨ ✨ ✨ ✨', answer: '6', type: 'count' },
+    { problem: '✨ ✨ ✨ ✨ ✨ ✨ ✨', answer: '7', type: 'count' },
+    { problem: '✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨', answer: '8', type: 'count' },
+    { problem: '✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨', answer: '9', type: 'count' },
+    { problem: '✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨', answer: '10', type: 'count' },
+
+    // Simple Addition with Objects (sums up to 10)
+    { problem: '🧁 + 🧁', answer: '2', type: 'add' },
+    { problem: '🦋 + 🦋 + 🦋', answer: '3', type: 'add' },
+    { problem: '🚗 + 🚗 + 🚗', answer: '3', type: 'add' },
+    { problem: '🦄 + 🦄', answer: '2', type: 'add' },
+    { problem: '🎂 + 🎂 + 🎂', answer: '3', type: 'add' },
+    { problem: '✨ + ✨ + ✨', answer: '3', type: 'add' }
 ];
 
 function getRandomProblem() {

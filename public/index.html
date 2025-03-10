@@ -40,7 +40,7 @@
 <body class="min-h-screen flex items-center justify-center bg-gradient-to-r from-pink-100 to-blue-100">
     <!-- Welcome Screen -->
     <div id="welcomeScreen" class="welcome-screen text-center p-8 bg-white rounded-3xl shadow-xl max-w-md w-full mx-4">
-        <h1 class="text-4xl font-bold text-blue-500">Welcome to Math Game! 🎈</h1>
+        <h1 class="text-4xl font-bold text-blue-500">Welcome to Math Game!</h1>
         
         <div class="space-y-4 w-full">
             <p class="text-xl text-gray-600">Parents, please enter your child's name:</p>
@@ -50,19 +50,19 @@
                    placeholder="Child's name">
             <button onclick="startGame()" 
                     class="w-full bg-green-500 text-white text-xl py-3 rounded-lg hover:bg-green-600 transition-colors">
-                Let's Play! 🎮
+                Let's Count! ✨
             </button>
         </div>
         
         <p class="text-sm text-gray-500 mt-4">
-            Get ready for a fun counting adventure! 🌟
+            Get ready for a magical counting adventure! 🦄
         </p>
     </div>
 
     <!-- Game Screen -->
     <div id="gameScreen" class="game-screen text-center p-8 bg-white rounded-3xl shadow-xl max-w-md w-full mx-4">
         <div class="flex justify-center items-center mb-4">
-            <h1 class="text-4xl font-bold text-blue-500">Math Game! 🎈</h1>
+            <h1 class="text-4xl font-bold text-blue-500">Math Game!</h1>
         </div>
         
         <div class="mb-4 text-gray-600 text-lg">
@@ -76,10 +76,15 @@
         <!-- Number Buttons -->
         <div class="grid grid-cols-5 gap-2 mb-6 justify-center">
             <button class="number-button bg-pink-400 text-white hover:bg-pink-500" onclick="checkAnswer('1')">1</button>
-            <button class="number-button bg-blue-400 text-white hover:bg-blue-500" onclick="checkAnswer('2')">2</button>
-            <button class="number-button bg-green-400 text-white hover:bg-green-500" onclick="checkAnswer('3')">3</button>
-            <button class="number-button bg-yellow-400 text-white hover:bg-yellow-500" onclick="checkAnswer('4')">4</button>
-            <button class="number-button bg-purple-400 text-white hover:bg-purple-500" onclick="checkAnswer('5')">5</button>
+            <button class="number-button bg-purple-400 text-white hover:bg-purple-500" onclick="checkAnswer('2')">2</button>
+            <button class="number-button bg-blue-400 text-white hover:bg-blue-500" onclick="checkAnswer('3')">3</button>
+            <button class="number-button bg-green-400 text-white hover:bg-green-500" onclick="checkAnswer('4')">4</button>
+            <button class="number-button bg-yellow-400 text-white hover:bg-yellow-500" onclick="checkAnswer('5')">5</button>
+            <button class="number-button bg-red-400 text-white hover:bg-red-500" onclick="checkAnswer('6')">6</button>
+            <button class="number-button bg-indigo-400 text-white hover:bg-indigo-500" onclick="checkAnswer('7')">7</button>
+            <button class="number-button bg-teal-400 text-white hover:bg-teal-500" onclick="checkAnswer('8')">8</button>
+            <button class="number-button bg-orange-400 text-white hover:bg-orange-500" onclick="checkAnswer('9')">9</button>
+            <button class="number-button bg-pink-500 text-white hover:bg-pink-600" onclick="checkAnswer('10')">10</button>
         </div>
 
         <div id="result" class="mt-6 text-2xl font-bold"></div>
